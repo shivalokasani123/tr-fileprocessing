@@ -12,7 +12,7 @@ public class FileProcessor {
 			throw new IllegalArgumentException("Invalid input args !!!!");
 		}
 
-		File file = new File(args[0]);
+		File file = new File(args[0].trim());
 		System.out.println(file);
 		if (!file.exists()) {
 			throw new RuntimeException("Input file doesn't exists !!!");
