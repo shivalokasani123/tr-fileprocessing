@@ -16,6 +16,7 @@ public class FileProcessor {
 		System.out.println(args[0]);
 		System.out.println(file.canRead());
 		System.out.println(file.length());
+		
 		if (!file.exists()) {
 			throw new RuntimeException("Input file doesn't exists !!!");
 		}
