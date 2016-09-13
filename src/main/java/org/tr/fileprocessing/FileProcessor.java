@@ -14,11 +14,11 @@ public class FileProcessor {
 		{
 			file = new File(args[0]);
 		} 
-		else if (new File(System.getenv("input_file")).exists())
+		else if (System.getenv("input_file") != null && new File(System.getenv("input_file")).exists())
 		{
 			file = new File(System.getenv("input_file"));
 		}
-		else if (new File(System.getProperty("input_file")).exists())
+		else if (System.getProperty("input_file") != null && new File(System.getProperty("input_file")).exists())
 		{
 			file = new File(System.getProperty("input_file"));
 		}
