@@ -8,20 +8,30 @@ import java.io.StringWriter;
 public class FileProcessor {
 
 	public static void main(String[] args) {
-		if (args.length < 1) {
-			throw new IllegalArgumentException("Invalid input args !!!!");
-		}
-
-		File file = new File(args[0].trim());
-		System.out.println(args[0]);
-		System.out.println(file.canRead());
-		System.out.println(file.length());
 		
-		if (!file.exists()) {
-			throw new RuntimeException("Input file doesn't exists !!!");
+		File file = null;
+		if (args.length > 0 && new File(args[0]).exists())
+		{
+			file = new File(args[0]);
+		} 
+		else if (new File(System.getenv("input_file")).exists())
+		{
+			file = new File(System.getenv("input_file"));
+		}
+		else if (new File(System.getProperty("input_file")).exists())
+		{
+			file = new File(System.getProperty("input_file"));
 		}
 
-		printFileData(file);
+		if (file == null)
+		{
+			System.out.println("Input file doesn't exists !!!");
+			System.exit(-1);
+		} 
+		else
+		{
+			printFileData(file);
+		}
 	}
 
 	public static void printFileData(File file) {
